@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>A Fanboy Professes his Love for XAML</title>
+        <meta name="viewport" content="width=device-width">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/assets/application-2f120f093076a9bcbac7454e5a57ceb6.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+      <div class="container">
+        <div class="header">
+          <a href="/"><img src ="/assets/travis_isaacs-09ec6b0aeac0326e56b199e729f84e21.png" width='150' height="150"></a>
+          <a href="/" class="root">Travis Isaacs</a>
+          <div class="meta">
+            <p>
+              Designer, builder,
+              <a href="http://frontdesk.com">Front Desk</a> co-founder.
+            </p>
+            <p>See also: <a href="http://twitter.com/tbisaacs">@tbisaacs</a>, <a href="http://keynotekungfu.com">Keynote Kung-Fu</a></p>
+          </div>
+        </div>
+        <div class="content">
+          <h1>A Fanboy Professes his Love for XAML</h1>
+<p class="meta">05 Jul 2009</p>
+
+<div id="post">
+
+<p>I’m working on a Windows Presentation Foundation (WPF) application at <a href="http://improvingenterprises.com">WinForms</a>, and mastering the <a href="http://en.wikipedia.org/wiki/Graphics_Device_Interface">GDI</a>. Scary, right? WPF uses an XML-like presentation language called XAML to describe the UI. WPF can do some really neat things, like shader effects, hardware accelerated 3D, and much more (stuff that a real developer could explain).</p>
+
+<p>I started the project kicking and screaming. I just couldn’t shake my HTML/CSS muscle memory, making translating my interface ideas into reality was truly an exercise in frustration. I need an HTML-to-XAML translator for my brain, and there just isn’t one.</p>
+
+<p>After a few months of trial and error, I’m finally comfortable with XAML, and I have to say, <strong>I freaking love it</strong>. Ok, maybe love is a strong word, but I am definitely in like with it. I like it so much so that idea of building an interface with tools like HTML and CSS seems just plain silly when you think about.</p>
+
+<h3 id="style_resources">Style Resources</h3>
+
+<p>There has been <a href="http://lessscss.org">a lot of cool work</a> to allow front-end developers to use a more object-oriented approach to their CSS. One example would be to create variables for things like colors, and refer to them later. Because your colors are abstracted into variables, you only need to change them in one place. One example (in pseudo-code) might be:</p>
+<div class='highlight'><pre><code class='sass'><span class='nv'>$microsoft_blue</span><span class='o'>:</span> <span class='mh'>#5ea3d6</span><span class='err'>;</span>
+<span class='nn'>#header</span><span class='err'>{</span>
+  <span class='na'>background</span><span class='o'>:</span><span class='nv'>$microsoft_blue</span><span class='err'>;</span>
+<span class='err'>}</span>
+</code></pre></div>
+<p>I XAML, you can abstract things like colors, gradients (booyah!), and even background images as “resources” that can be consumed by other styles:</p>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;LinearGradientBrush</span> <span class='na'>x:Key=</span><span class='s'>&quot;ButtonBackground&quot;</span> <span class='na'>StartPoint=</span><span class='s'>&quot;0,0&quot;</span> <span class='na'>EndPoint=</span><span class='s'>&quot;0,1&quot;</span><span class='nt'>&gt;</span>
+  <span class='nt'>&lt;GradientBrush.GradientStops&gt;</span>
+    <span class='nt'>&lt;GradientStopCollection&gt;</span>
+      <span class='nt'>&lt;GradientStop</span> <span class='na'>Color=</span><span class='s'>&quot;#3FFFFFFF&quot;</span> <span class='na'>Offset=</span><span class='s'>&quot;0&quot;</span> <span class='nt'>/&gt;</span>
+      <span class='nt'>&lt;GradientStop</span> <span class='na'>Color=</span><span class='s'>&quot;#00000000&quot;</span> <span class='na'>Offset=</span><span class='s'>&quot;.5&quot;</span><span class='nt'>/&gt;</span>
+    <span class='nt'>&lt;/GradientStopCollection&gt;</span>
+  <span class='nt'>&lt;/GradientBrush.GradientStops&gt;</span>
+<span class='nt'>&lt;/LinearGradientBrush&gt;</span>
+</code></pre></div>
+<p>In the above example, we created a linear gradient background, gave it a key, and created a style that consumes that resources. Freaking. Awesome.</p>
+
+<h3 id="styles__triggers">Styles &amp; Triggers</h3>
+
+<p>In XAML, interactive behaviors (like clicks, mouse overs, toggled, etc) are a part of an element’s styles. Here is a really rudimentary style for a button:</p>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;Style</span> <span class='na'>TargetType=</span><span class='s'>&quot;Button&quot;</span><span class='nt'>&gt;</span>
+  <span class='nt'>&lt;Setter</span> <span class='na'>Property=</span><span class='s'>&quot;Background&quot;</span> <span class='na'>Value=</span><span class='s'>&quot;Red&quot;</span> <span class='nt'>/&gt;</span>
+  <span class='nt'>&lt;Style.Triggers&gt;</span>
+    <span class='nt'>&lt;Trigger</span> <span class='na'>Property=</span><span class='s'>&quot;IsMouseOver&quot;</span> <span class='na'>Value=</span><span class='s'>&quot;True&quot;</span><span class='nt'>&gt;</span>
+      <span class='nt'>&lt;Setter</span> <span class='na'>Property=</span><span class='s'>&quot;Background&quot;</span> <span class='na'>Value=</span><span class='s'>&quot;Maroon&quot;</span> <span class='nt'>/&gt;</span>
+    <span class='nt'>&lt;/Trigger&gt;</span>
+  <span class='nt'>&lt;/Style.Triggers&gt;</span>
+<span class='nt'>&lt;/Style&gt;</span>
+</code></pre></div>
+<p>In the simple example above, I want all my buttons to have a red background and turn maroon when they are moused over. Now all my buttons will have this style and behavior.</p>
+
+<h3 id="control_templates">Control Templates</h3>
+
+<p>The “lookless” control in WPF is an extremely powerful, brain-melting concept. The idea is that an interface control’s look can be modified in anyway, but the control will <strong>retain it’s inherent properties</strong>.</p>
+
+<p>This is was makes WPF superior to other UI toolkits like Java’s Swing and SWT which are extremely limited in their customization. In HTML, common form elements cannot be styled or modified.</p>
+
+<p>Ever want to change the look of a <code>box? Good luck. With WPF, your</code> box (which is a “ in XAML) can either look like the Windows default theme, or completely changed, everything from the color to how long the drop-down takes to open. Best of all, making these customizations is really straight forward and doesn’t require you to write a single line of C# code.</p>
+
+<h3 id="xaml_and_htmlcss_arent_even_in_the_same_galaxy">XAML and HTML/CSS aren’t even in the same galaxy</h3>
+
+<p>XAML was solely written to build interfaces, which is in stark contrast from HTML’s roots as a document formatting language thats been hacked up and layer upon. A traditional rich web application uses HTML (and probably some server-side language) to deliver the basic structure, CSS for layout, presentation, and text formatting, and then a layer of Javascript on top to handle the interactivity that HTML can’t do, and probably some data exchange.</p>
+
+<p>Because XAML was purpose built for UI all of the layout, styling, and interactivity are baked-in without a need for the complex UI “stack” of a traditional HTML web app. HTML and CSS3 show some promise of bringing a real UI toolkit to the web, but are still a far cry from what we need.</p>
+
+</div>
+<div id="post_footer">
+  <a href="/">&larr; Home</a>&nbsp;&bull;&nbsp;<a href="http://twitter.com/tbisaacs">Follow me on Twitter</a>
+</div>
+
+        </div>
+        <div class="clear"></div
+      </div> <!-- /container -->
+    </body>
+</html>
