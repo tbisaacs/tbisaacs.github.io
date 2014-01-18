@@ -6,7 +6,7 @@
         <title>Downsized</title>
         <meta name="viewport" content="width=device-width">
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/assets/application-a9cb9f5726324bbc68b1fb4303ce0afa.css">
+        <link rel="stylesheet" href="/assets/application-5bf281d7b5ebfa8acec1b688fe2a6ed2.css">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body class="">
@@ -30,14 +30,13 @@
             <p class="icon-marker-2">Grapevine, TX</p>
             <a class="toggle_mode icon-waning-crescent-moon" href="" title="Night mode" data-mode='dark'></a>
             <a class="toggle_mode icon-sun" href="" title="Day mode" data-mode='light'></a>
-
           </div>
         </div>
         <div class="content">
-          <h1>Downsized</h1>
+        <h1>Downsized</h1>
 <p class="meta">19 Jan 2011</p>
 
-<div class="ancient icon-link-broken-1">This post is ancient history. My apologies for any dead links or broken images.</div>
+<div class="ancient icon-clock-2">This post is ancient history. My apologies for any dead links or broken images.</div>
 
 <div id="post">
 
@@ -60,21 +59,60 @@
 <p>I’ll cut to the chase—the MacBook Air handles all of my <em>real</em> work like a champ. Actually, “handle” is an understatement. You see the MacBook Air has a little secret under it’s rigid unibody enclosure—that proprietary SSD. My Intel X25 SSD was fast, really fast. The MacBook Air’s SSD is <strong>smoking</strong> fast.</p>
 
 <p><strong>Uncached Sequential Read/Write</strong></p>
-
-<p> 4k write256k write4k read256k read</p>
-
-<p>MacBook Air 256GB SSD <strong>146.3 MB/s</strong> <strong>159.41 MB/s</strong> 20.02 MB/s 180.45 MB/s</p>
-
-<p>Intel X25M 160GB SSD 80.29 MB/s 62.96 MB/s <strong>35.61 MB/s</strong> <strong>202.25 MB/s</strong></p>
-
+<table border='0' class='ssd_post_table' width='100%'>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>4k write</th>
+      <th>256k write</th>
+      <th>4k read</th>
+      <th>256k read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope='row'>MacBook Air 256GB SSD</th>
+      <td><strong>146.3 MB/s</strong></td>
+      <td><strong>159.41 MB/s</strong></td>
+      <td>20.02 MB/s</td><td>180.45 MB/s</td>
+    </tr>
+    <tr>
+      <th scope='row'>Intel X25M 160GB SSD</th>
+      <td>80.29 MB/s</td>
+      <td>62.96 MB/s</td>
+      <td><strong>35.61 MB/s</strong></td>
+      <td><strong>202.25 MB/s</strong></td>
+    </tr>
+  </tbody>
+</table>
 <p><strong>Uncached Random Read/Write</strong></p>
-
-<p> 4k write256k write4k read256k read</p>
-
-<p>MacBook Air 256GB SSD 30.93 MB/s *<strong><em>163.98 MB/s</em></strong>* <strong>11.59 MB/s</strong> 109.43 MB/s</p>
-
-<p>Intel X25M 160GB SSD <strong>71.74 MB/s</strong> 71.89 MB/s 9.60 MB/s *<strong><em>174.53 MB/s</em></strong>*</p>
-
+<table border='0' class='ssd_post_table' width='100%'>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>4k write</th>
+      <th>256k write</th>
+      <th>4k read</th>
+      <th>256k read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope='row'>MacBook Air 256GB SSD</th>
+      <td>30.93 MB/s</td>
+      <td><strong>163.98 MB/s</strong></td>
+      <td><strong>11.59 MB/s</strong></td>
+      <td>109.43 MB/s</td>
+    </tr>
+    <tr>
+      <th scope='row'>Intel X25M 160GB SSD</th>
+      <td><strong>71.74 MB/s</strong></td>
+      <td>71.89 MB/s</td>
+      <td>9.60 MB/s</td>
+      <td><strong>174.53 MB/s</strong></td>
+    </tr>
+  </tbody>
+</table>
 <p>Apps launch near instantaneous. Reboots take under 30 seconds. It’s so fast that it’s invisible.</p>
 
 <p>Day-to-day life with the MacBook Air is a dream. It’s feather-light, silent, and runs cool as a cucumber. It hardly makes a dent in my bag on my daily bike commute to the office. Don’t even get me started on the battery. It’s practically bottomless.</p>
@@ -99,8 +137,12 @@
 </div>
 
         </div>
-        <div class="clear"></div
-      </div> <!-- /container -->
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <div id="footer">
+        Powered by <a href="http://jekyllrb.com">Jekyll</a>, hosted on <a href="http://github.io">Github</a>
+      </div>
       <script src="/assets/zepto-ef1e76deeb1d80c112b1170365a186ca.min"></script>
       <script src="/assets/app-f4c7b0767e0fa7c47a0dbf0c68945141.js"></script>
     </body>
